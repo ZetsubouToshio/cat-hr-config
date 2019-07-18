@@ -1,6 +1,15 @@
-# kong docker startup (DB LESS)
-## create kong network (for future usw cases)
+#preparations
+## create network
     docker network create kong-net
+
+# webui startup
+## create docker volume
+    docker run -itd --name cat-hr-webui \ 
+    --network=kong-net \
+    -p 3000:80 \
+    --rm registry.gitlab.com/cat-hr/cat-hr-webui:latest
+
+# kong docker startup (DB LESS)
 ## create docker volume
     docker volume create kong-vol
 ## create king config file
