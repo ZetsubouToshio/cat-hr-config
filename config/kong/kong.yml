@@ -1,2 +1,9 @@
 _format_version: "1.1"
 
+services:
+- name: cat-hr-webui
+  url: http://cat-hr-webui:80
+  routes:
+  - name: ui-root
+    paths:
+    - /
