@@ -5,5 +5,8 @@ services:
   url: http://cat-hr-webui:80
   routes:
   - name: ui-root
+    protocols:
+    - https
+    https_redirect_status_code: 307
     paths:
     - /
