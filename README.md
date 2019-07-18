@@ -11,6 +11,7 @@ https://docs.konghq.com/1.2.x/db-less-and-declarative-config/#the-declarative-co
 stored into /config/kong/kong.yml
 
 could be checked:
+    
     kong config -c kong.conf parse kong.yml
     
 ## run kong    
