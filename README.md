@@ -1,4 +1,4 @@
-#preparations
+# preparations
 ## create network
     docker network create kong-net
 
