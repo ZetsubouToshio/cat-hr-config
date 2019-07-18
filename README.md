@@ -4,10 +4,10 @@
 
 # webui startup
 ## create docker volume
-    docker run -itd --name cat-hr-webui \ 
-    --network=kong-net \
-    -p 3000:80 \
-    --rm registry.gitlab.com/cat-hr/cat-hr-webui:latest
+    docker run -itd --name cat-hr-webui \
+        --network=kong-net \
+        -p 3000:80 \
+        --rm registry.gitlab.com/cat-hr/cat-hr-webui:latest
 
 # kong docker startup (DB LESS)
 ## create docker volume
@@ -34,8 +34,8 @@ could be checked:
          -e "KONG_PROXY_ERROR_LOG=/dev/stderr" \
          -e "KONG_ADMIN_ERROR_LOG=/dev/stderr" \
          -e "KONG_ADMIN_LISTEN=0.0.0.0:8001, 0.0.0.0:8444 ssl" \
-         -p 8000:8000 \
+         -p 80:8000 \
          -p 8443:8443 \
          -p 8001:8001 \
          -p 8444:8444 \
-         kong:latest
+         --rm kong:latest
