@@ -2,8 +2,14 @@
 ## create network
     docker network create kong-net
 
+# keycloak startup
+## run keycloack
+(config for test purrrrposes)
+
+    docker run -e KEYCLOAK_USER=admin -e KEYCLOAK_PASSWORD=admin -e DB_VENDOR=H2 -p 8080:8080 --name sso jboss/keycloak-examples
+
 # webui startup
-## create docker volume
+## run webui
     docker run -itd --name cat-hr-webui \
         --network=kong-net \
         -p 3000:80 \
