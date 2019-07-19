@@ -19,7 +19,7 @@
     -p 8443:8443 \
     jboss/keycloak
 
-## client konfig
+## client config
 https://scalac.io/user-authentication-keycloak-1/
 
 # webui startup
