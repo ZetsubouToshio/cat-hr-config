@@ -6,17 +6,21 @@
 ## create volume 
     docker volume create keycloak-vol
 ## copy cert and key to cert folder
-    sudo cp fullchain.pem /var/lib/docker/volumes/keycloak-vol/_data/tls.crt
-    sudo cp privkey.pem /var/lib/docker/volumes/keycloak-vol/_data/tls.key
+    sudo cp cert/fullchain.pem /var/lib/docker/volumes/keycloak-vol/_data/tls.crt && \
+    sudo cp cert/privkey.pem /var/lib/docker/volumes/keycloak-vol/_data/tls.key
 ## run keycloack
 (config for test purrrrposes)
 
     docker run -d --name keycloak \
+    --network=kong-net \
     -v "keycloak-vol:/etc/x509/https" \
+    -e PROXY_ADDRESS_FORWARDING=true \
+    -e KEYCLOAK_HOSTNAME=zetsuboutoshio.tk \
     -e KEYCLOAK_USER=admin \
     -e KEYCLOAK_PASSWORD=admin \
     -e DB_VENDOR=H2 \
     -p 8443:8443 \
+    -p 8080:8080 \
     jboss/keycloak
 
 ## client config
