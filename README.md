@@ -3,10 +3,24 @@
     docker network create kong-net
 
 # keycloak startup
+## create volume 
+    docker volume create keycloak-vol
+## copy cert and key to cert folder
+    sudo cp fullchain.pem /var/lib/docker/volumes/keycloak-vol/_data/tls.crt
+    sudo cp privkey.pem /var/lib/docker/volumes/keycloak-vol/_data/tls.key
 ## run keycloack
 (config for test purrrrposes)
 
-    docker run -e KEYCLOAK_USER=admin -e KEYCLOAK_PASSWORD=admin -e DB_VENDOR=H2 -p 8080:8080 --name sso jboss/keycloak-examples
+    docker run -d --name keycloak \
+    -v "keycloak-vol:/etc/x509/https" \
+    -e KEYCLOAK_USER=admin \
+    -e KEYCLOAK_PASSWORD=admin \
+    -e DB_VENDOR=H2 \
+    -p 8443:8443 \
+    jboss/keycloak
+
+## client konfig
+https://scalac.io/user-authentication-keycloak-1/
 
 # webui startup
 ## run webui
@@ -31,6 +45,9 @@ could be checked:
 ## ssl
 
 copy sertificate (fullchain.pem) and private key (privkey.pem) to /var/lib/docker/volumes/kong-vol/_data/
+
+sudo cp fullchain.pem /var/lib/docker/volumes/kong-vol/_data/tls.crt
+sudo cp privkey.pem /var/lib/docker/volumes/kong-vol/_data/tls.key
 
 ## run kong    
     docker run -d --name kong \
