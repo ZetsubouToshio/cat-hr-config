@@ -10,3 +10,11 @@ services:
     https_redirect_status_code: 307
     paths:
     - /
+- name: keycloak
+  url: https://keycloak:8443/auth
+  routes:
+  - name: auth
+    protocols:
+    - https
+    paths:
+    - /auth
