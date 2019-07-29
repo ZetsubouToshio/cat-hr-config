@@ -40,12 +40,14 @@ https://hostname:8443/auth/admin/
 ## run backend 
 
     docker run -itd --name search-orchestrator \
-        --network=kong-net \
-        -e "SPRING_DATASOURCE_URL = URL" \
-        -e "SPRING_DATASOURCE_USERNAME = USERNAME" \
-        -e "SPRING_DATASOURE_PASSWORD = PASSWORD" \
-        -p 3001:3001 \
-        --rm registry.gitlab.com/cat-hr/search-orchestrator:latest
+    --network=kong-net \
+    -e JAVA_OPTS="\
+    	-Dspring.datasource.url='url' \
+    	-Dspring.datasource.username=username \
+    	-Dspring.datasource.password=password \
+    " \
+    -p 3001:3001 \
+    registry.gitlab.com/cat-hr/search-orchestrator:latest
 
 # kong docker startup (DB LESS)
 ## create docker volume
