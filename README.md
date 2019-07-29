@@ -36,6 +36,17 @@ https://hostname:8443/auth/admin/
         -p 3000:80 \
         --rm registry.gitlab.com/cat-hr/cat-hr-webui:latest
 
+# backend startup
+## run backend 
+
+    docker run -itd --name search-orchestrator \
+        --network=kong-net \
+        -e "SPRING_DATASOURCE_URL = URL" \
+        -e "SPRING_DATASOURCE_USERNAME = USERNAME" \
+        -e "SPRING_DATASOURE_PASSWORD = PASSWORD" \
+        -p 8080:3001 \
+        --rm registry.gitlab.com/cat-hr/search-orchestrator:latest
+
 # kong docker startup (DB LESS)
 ## create docker volume
     docker volume create kong-vol
