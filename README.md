@@ -44,7 +44,7 @@ https://hostname:8443/auth/admin/
         -e "SPRING_DATASOURCE_URL = URL" \
         -e "SPRING_DATASOURCE_USERNAME = USERNAME" \
         -e "SPRING_DATASOURE_PASSWORD = PASSWORD" \
-        -p 8080:3001 \
+        -p 3001:3001 \
         --rm registry.gitlab.com/cat-hr/search-orchestrator:latest
 
 # kong docker startup (DB LESS)
