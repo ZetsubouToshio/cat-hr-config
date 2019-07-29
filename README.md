@@ -27,7 +27,7 @@
 https://scalac.io/user-authentication-keycloak-1/
 
 ## admin dashboard
-https://<hostname>:8443/auth/admin/
+https://hostname:8443/auth/admin/
 
 # webui startup
 ## run webui
