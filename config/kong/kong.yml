@@ -10,6 +10,15 @@ services:
     https_redirect_status_code: 307
     paths:
     - /
+- name: search-orchestrator
+  url: http://search-orchestrator:3001/search/api
+  routes:
+  - name: search-orchestrator-root
+    protocols:
+    - https
+    https_redirect_status_code: 307
+    paths:
+    - /search/api
 - name: keycloak
   url: https://keycloak:8443/auth
   routes:
