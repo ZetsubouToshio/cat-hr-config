@@ -23,6 +23,24 @@
     -p 8080:8080 \
     jboss/keycloak
 
+## run keycloack
+(sam kinda of prod)
+
+    docker run -d --name keycloak \
+    --network=kong-net \
+    -v "keycloak-vol:/etc/x509/https" \
+    -e PROXY_ADDRESS_FORWARDING=true \
+    -e KEYCLOAK_HOSTNAME=zetsuboutoshio.tk \
+    -e KEYCLOAK_USER=admin \
+    -e KEYCLOAK_PASSWORD=admin \
+    -e DB_VENDOR=postgres \
+    -e DB_ADDR= \
+    -e DB_USER= \
+    -e DB_PASSWORD= \
+    -p 8443:8443 \
+    -p 8080:8080 \
+    jboss/keycloak    
+
 ## client config
 https://scalac.io/user-authentication-keycloak-1/
 
