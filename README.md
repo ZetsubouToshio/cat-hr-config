@@ -41,11 +41,9 @@ https://hostname:8443/auth/admin/
 
     docker run -itd --name search-orchestrator \
     --network=kong-net \
-    -e JAVA_OPTS="\
-    	-Dspring.datasource.url='url' \
-    	-Dspring.datasource.username=username \
-    	-Dspring.datasource.password=password \
-    " \
+    -e SPRING_DATASOURCE_URL= \
+    -e SPRING_DATASOURCE_USERNAME= \
+    -e SPRING_DATASOURCE_PASSWORD= \
     -p 3001:3001 \
     registry.gitlab.com/cat-hr/search-orchestrator:latest
 
