@@ -8,8 +8,7 @@
 ## copy cert and key to cert folder
     sudo cp cert/fullchain.pem /var/lib/docker/volumes/keycloak-vol/_data/tls.crt && \
     sudo cp cert/privkey.pem /var/lib/docker/volumes/keycloak-vol/_data/tls.key
-## run keycloack
-(config for test purrrrposes)
+## run keycloack (test)
 
     docker run -d --name keycloak \
     --network=kong-net \
@@ -23,8 +22,7 @@
     -p 8080:8080 \
     jboss/keycloak
 
-## run keycloack
-(sam kinda of prod)
+## run keycloack (prod)
 
     docker run -d --name keycloak \
     --network=kong-net \
