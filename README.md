@@ -29,15 +29,14 @@
     -v "keycloak-vol:/etc/x509/https" \
     -e PROXY_ADDRESS_FORWARDING=true \
     -e KEYCLOAK_HOSTNAME=zetsuboutoshio.tk \
+    -e KEYCLOAK_HTTPS_PORT=443 \
     -e KEYCLOAK_USER=admin \
     -e KEYCLOAK_PASSWORD=admin \
     -e DB_VENDOR=postgres \
     -e DB_ADDR= \
     -e DB_USER= \
     -e DB_PASSWORD= \
-    -p 8443:8443 \
-    -p 8080:8080 \
-    jboss/keycloak    
+    registry.gitlab.com/cat-hr/cat-hr-config/keycloak:latest     
 
 ## client config
 https://scalac.io/user-authentication-keycloak-1/
