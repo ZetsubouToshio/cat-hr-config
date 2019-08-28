@@ -6,8 +6,8 @@
 ## create volume 
     docker volume create keycloak-vol
 ## copy cert and key to cert folder
-    sudo ln -s fullchain.pem /var/lib/docker/volumes/keycloak-vol/_data/tls.crt && \
-    sudo ln -s privkey.pem /var/lib/docker/volumes/keycloak-vol/_data/tls.key
+    sudo cp fullchain.pem /var/lib/docker/volumes/keycloak-vol/_data/tls.crt && \
+    sudo cp privkey.pem /var/lib/docker/volumes/keycloak-vol/_data/tls.key
 ## run keycloack (test)
 
     docker run -d --name keycloak \
@@ -79,8 +79,8 @@ could be checked:
 
 copy sertificate (fullchain.pem) and private key (privkey.pem) to /var/lib/docker/volumes/kong-vol/_data/
 
-    sudo ln -s fullchain.pem /var/lib/docker/volumes/kong-vol/_data/fullchain.pem
-    sudo ln -s privkey.pem /var/lib/docker/volumes/kong-vol/_data/privkey.pem
+    sudo cp fullchain.pem /var/lib/docker/volumes/kong-vol/_data/fullchain.pem
+    sudo cp privkey.pem /var/lib/docker/volumes/kong-vol/_data/privkey.pem
 
 ## run kong    
     docker run -d --name kong \
