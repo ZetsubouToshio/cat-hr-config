@@ -6,8 +6,8 @@
 ## create volume 
     docker volume create keycloak-vol
 ## copy cert and key to cert folder
-    sudo cp cert/fullchain.pem /var/lib/docker/volumes/keycloak-vol/_data/tls.crt && \
-    sudo cp cert/privkey.pem /var/lib/docker/volumes/keycloak-vol/_data/tls.key
+    sudo ln -s fullchain.pem /var/lib/docker/volumes/keycloak-vol/_data/tls.crt && \
+    sudo ln -s privkey.pem /var/lib/docker/volumes/keycloak-vol/_data/tls.key
 ## run keycloack (test)
 
     docker run -d --name keycloak \
