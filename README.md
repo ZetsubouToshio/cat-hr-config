@@ -79,8 +79,8 @@ could be checked:
 
 copy sertificate (fullchain.pem) and private key (privkey.pem) to /var/lib/docker/volumes/kong-vol/_data/
 
-sudo cp fullchain.pem /var/lib/docker/volumes/kong-vol/_data/tls.crt
-sudo cp privkey.pem /var/lib/docker/volumes/kong-vol/_data/tls.key
+    sudo ln -s fullchain.pem /var/lib/docker/volumes/kong-vol/_data/tls.crt
+    sudo ln -s privkey.pem /var/lib/docker/volumes/kong-vol/_data/tls.key
 
 ## run kong    
     docker run -d --name kong \
